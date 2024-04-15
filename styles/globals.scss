@@ -1,30 +1,77 @@
+@import "./variables.scss";
+@import "./media-querys.scss";
+
+
+
 .main {
   background-color: rgba(37, 35, 35, 0.76);
   height: 100vh;
-.headerbar {
-  background-color: rgb(27, 100, 76);
+  .headerbar {
+  background-color: $fantasma;
+  padding: 5px;
+  height: 70px;
+  @include tablet {
+    height: 140px;
+    }
   .row {
     .box {}
-    .logo {}
-    .buscador {}
+    .logo { 
+         display: flex; 
+      justify-content: flex-start;
+      margin-left: 10px;  
+      
+      @include tablet {
+        display: flex; 
+      justify-content: center;
+}
+      .image-logo{
+     
+   
+    } }
+    .buscador {
+      padding-top: 20px;
+    }
     .opciones {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      padding: 5px 10px 0 0;
+
       .ProfileMenu {
         width: 50px;
         height: 50px;
         background-color: pink;
-        position: relative;
         text-align: center;
-        left: 80px;
+        position:relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
         cursor: pointer;
         border-radius: 10px;
+       
       }
       .MenuOptions {
-        background-color: pink;
+        margin-top: 80px;
+        position: absolute;
+        width: 200px;
+        right: 0px;
+        text-align: right;
+        background-color: $fantasma;
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.2s all ease;
+        opacity: 0;
+        &.active { 
+          max-height: 200px;
+          opacity: 1;
+        }
 
         
         .option {
-          color:red;
-          background-color: pink;
+          color:$planta;
+          font-weight: 500;
+          text-align: center;
 
           :hover { 
             background-color: black;
@@ -38,4 +85,94 @@
   }
 }
 
+.tarjetas-pokemon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; 
+ .tarjeta {
+  background-color: $electrico;
+  height: 300px;
+  width: 200px;
+  border-radius: 10px;
+  top: 80px;
+  margin: 10px;
+  position: relative;
+  isolation: isolate;  
+  overflow: hidden;
+         &:hover {
+          box-shadow: 1px 1px 1px 1px rgba(219, 211, 211, 0.795);
+          transform: scale(1.1 ,1.1 );
+          transition: 0.2s in ease;
+        
+  }
+     .id-back {
+      color: rgba(167, 165, 165, 0.459);
+      z-index: 99;
+      font-size: 100px;
+      position: absolute;
+      font-weight: 800;
+      left: 50%;
+      transform: translateX(-50%);
+     }
+    .pokemon-img {     
+      margin-top: 10px;
+      position: relative;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+
+       img {
+        width: 100%;
+        max-width: 120px;
+    
+      
+  }
+  }
+    .pokemon-info {
+      max-height: 150px;
+      display: flex;
+      flex-direction: column;
+      
+  .nombre-contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+   .pokemon-id {
+    margin-top: 10px;
+   }
+   .pokemon-nombre {
+    text-transform: uppercase;
+    font-size: 25px;
+   }
+  }
+  .pokemon-tipos { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+  .tipo {
+    padding:5px;
+    background-color: rgb(146, 161, 10);
+    border-radius: 10px;
+  }
+   }
+  .pokemon-stats {  
+    display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+  .stat{
+    padding:5px;
+    background-color: rgb(148, 72, 72);
+    border-radius: 10px;
+
+}
+  }
+  }
+ }
+
+}
 }
